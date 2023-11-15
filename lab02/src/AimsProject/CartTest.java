@@ -12,11 +12,12 @@ public class CartTest {
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star wars", "Science Fiction", "George Lucas", 87, 24.95f);
         cart.addDigitalVideoDisc(dvd2);
 
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Animation","Aladin",  18.99f);
         cart.addDigitalVideoDisc(dvd3);
 
         //test search method
         Scanner sc = new Scanner(System.in);
+
         System.out.println("Enter id: ");
         int id = sc.nextInt(); //id you want to find
         cart.searchByID(id);
@@ -24,5 +25,6 @@ public class CartTest {
         System.out.println("Enter title: ");
         String title = sc.next(); //title you want to find
         cart.searchByTitle(title);
+
     }
 }
