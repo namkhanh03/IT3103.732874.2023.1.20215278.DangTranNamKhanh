@@ -1,0 +1,17 @@
+Question 1: Try to add a method addDigitalVideoDisc which allows to pass an arbitrary number of arguments for dvd. Compare to an array parameter. What do you prefer in this case?
+=> So sánh:
+- Tính dễ đọc so với tính chính xác: Các biến thể có thể ngắn gọn hơn về mặt cú pháp gọi phương thức, nhưng việc sử dụng tham số mảng có thể làm cho mã rõ ràng và dễ đọc hơn.
+
+- Tính linh hoạt so với khả năng kiểm soát: Varargs mang lại sự linh hoạt hơn vì người dùng có thể chuyển bất kỳ số lượng đối số nào. Mặt khác, việc sử dụng tham số mảng cho phép bạn kiểm soát nhiều hơn đối với dữ liệu đầu vào dự kiến.
+
+- Hiệu suất: Về mặt hiệu suất, việc sử dụng mảng có thể hiệu quả hơn một chút vì các biến thể liên quan đến việc tạo một mảng ở hậu trường.
+
+=> Sở thích cá nhân:
+Trong trường hợp này, em thích sử dụng truyền số lượng tùy ý cho dvd vì chúng ta thường gặp những trường hợp số lượng chuyền vào lớn mà ko biết trước.
+
+Đối với các phương pháp như addDigitalVideoDisc, trong đó người dùng có thể thêm nhiều DVD cùng một lúc, cả hai phương pháp đều có thể hợp lý. Chọn một cái phù hợp hơn với phong cách mã hóa và thiết kế tổng thể của ứng dụng của bạn.
+
+Question 2: Is JAVA a Pass by Value or a Pass by Reference programming language? 
+=> In Java, when you pass a variable to a method, you are passing the value of the variable, not the actual variable itself. This is known as "pass-by-value."
+
+In the context of method parameters, passing by value means that a copy of the value stored in the variable is passed to the method. Any changes made to the parameter inside the method do not affect the original variable outside the method.
