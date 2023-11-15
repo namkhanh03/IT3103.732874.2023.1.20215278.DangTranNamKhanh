@@ -1,11 +1,14 @@
 package AimsProject;
 
 public class DigitalVideoDisc {
+    private int id;
     private String title;
     private String category;
     private String director;
     private int length;
     private float cost;
+    private static int nbDigitalVideoDisc = 0;
+
 
     // Getter method
     public String getTitle() {
@@ -26,6 +29,10 @@ public class DigitalVideoDisc {
 
     public float getCost() {
         return cost;
+    }
+
+    public int getId(){
+        return id;
     }
 
     // Setter method
@@ -52,12 +59,16 @@ public class DigitalVideoDisc {
     // Constructor method
     public DigitalVideoDisc(String title){
         this.title = title;
+        nbDigitalVideoDisc += 1;
+        this.id = nbDigitalVideoDisc;
     }
 
     public DigitalVideoDisc(String category, String title, float cost){
         this.category = category;
         this.title = title;
         this.cost = cost;
+        nbDigitalVideoDisc += 1;
+        this.id = nbDigitalVideoDisc;
     }
 
     public DigitalVideoDisc(String director, String category, String title, float cost){
@@ -65,6 +76,8 @@ public class DigitalVideoDisc {
         this.category = category;
         this.title = title;
         this.cost = cost;
+        nbDigitalVideoDisc += 1;
+        this.id = nbDigitalVideoDisc;
     }
 
     public DigitalVideoDisc(String title, String category, String director, int length ,float cost){
@@ -73,6 +86,17 @@ public class DigitalVideoDisc {
         this.title = title;
         this.length = length;
         this.cost = cost;
+        nbDigitalVideoDisc += 1;
+        this.id = nbDigitalVideoDisc;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + title + "] - [" + category + "] - [" + director + "] - [" + length + "]: [" + cost + "]";
+    }
+
+    public boolean isMatch(String title) {
+        return this.title.toLowerCase().contains(title.toLowerCase());
     }
 }
 
