@@ -74,6 +74,12 @@ public class DigitalVideoDisc {
         this.length = length;
         this.cost = cost;
     }
+
+    // toString method
+    @Override
+    public String toString(){
+        return "[" + title + "] - [" + category + "] - [" + director + "] - [" + length + "]: [" + cost + "]";
+    }
 }
 
 
