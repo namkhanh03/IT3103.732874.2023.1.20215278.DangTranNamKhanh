@@ -1,26 +1,40 @@
 package AimsProject;
 
 import AimsProject.Media.Media;
+import AimsProject.Media.DigitalVideoDisc;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
+    // Attribute
     private List<Media> itemsOrdered = new ArrayList<Media>();
+    private int numOfDVDs;
 
     // Constructor
     public Cart() {
+        numOfDVDs = 0;
     }
 
     // Method to add a new media
     public void addMedia(Media media) {
+        if (itemsOrdered.contains(media)) {
+            System.out.println("Media is already in the list");
+            return;
+        }
         itemsOrdered.add(media);
+        if (media.getClass() == DigitalVideoDisc.class) {
+            numOfDVDs++;
+        }
         System.out.println("Added");
     }
 
-    // Method remove
+    // Method to remove a media
     public void removeMedia(Media media) {
+        // Search for media
         int indexOfRemoved = itemsOrdered.indexOf(media);
+
+        // If not found
         if (indexOfRemoved == -1) {
             System.out.println("Not found");
             return;
@@ -28,6 +42,9 @@ public class Cart {
 
         // Remove
         itemsOrdered.remove(indexOfRemoved);
+        if (media.getClass() == DigitalVideoDisc.class) {
+            numOfDVDs--;
+        }
 
         // Notify
         System.out.println("Removed");
@@ -56,30 +73,46 @@ public class Cart {
     }
 
     // Method to search for media in the cart by ID and display the search results.
-    public void searchByID(int id) {
-        boolean found = false;
+    public Media searchByID(int id) {
         for (Media media: itemsOrdered) {
             if (media.getId() == id) {
-                found = true;
-                media.print();
+                return media;
             }
         }
-        if (!found) {
-            System.out.println("Not found!");
-        }
+        System.out.println("Not found!");
+        return null;
     }
 
-    // Method to search for DVDs in the cart by title and print the results.
-    public void searchByTitle(String title) {
-        boolean found = false;
+    // Method to search for media in the cart by title.
+    public Media searchByTitle(String title) {
         for (Media media: itemsOrdered) {
             if (media.isMatch(title)) {
-                found = true;
-                media.print();
+                return media;
             }
         }
-        if (!found) {
-            System.out.println("Not found!");
-        }
+        System.out.println("Not found!");
+        return null;
+    }
+
+    // Method to sort by title and print
+    public void sortByTitle() {
+        itemsOrdered.sort(Media.COMPARE_BY_TITLE);
+        printCart();
+    }
+
+    // Method to sort by cost and print
+    public void sortByCost() {
+        itemsOrdered.sort(Media.COMPARE_BY_COST);
+        printCart();
+    }
+
+    // Getter and Setter
+
+    public int getNumOfDVDs() {
+        return numOfDVDs;
+    }
+
+    public void setNumOfDVDs(int numOfDVDs) {
+        this.numOfDVDs = numOfDVDs;
     }
 }

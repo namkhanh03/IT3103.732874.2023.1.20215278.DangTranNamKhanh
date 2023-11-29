@@ -1,10 +1,31 @@
 package AimsProject.Media;
 
+import java.util.Comparator;
+
+class MediaComparatorByTitle implements Comparator<Media> {
+    @Override
+    public int compare(Media media1, Media media2) {
+        return media1.getTitle().compareTo(media2.getTitle());
+    }
+}
+
+class MediaComparatorByCost implements Comparator<Media> {
+    @Override
+    public int compare(Media media1, Media media2) {
+        return Double.compare(media1.getCost(), media2.getCost());
+    }
+}
+
 public abstract class Media {
     private int id;
     private String title;
     private String category;
     private float cost;
+
+    public static final Comparator<Media> COMPARE_BY_TITLE =
+            new MediaComparatorByTitle();
+    public static final Comparator<Media> COMPARE_BY_COST    =
+            new MediaComparatorByCost();
 
     public int getId() {
         return id;
@@ -54,4 +75,16 @@ public abstract class Media {
     }
 
     public void print(){}
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Media media) {
+            return title.equals(media.getTitle());
+        }
+        return false;
+    }
+
+    public String toString() {
+        return "ID: " + this.id + " Title: " + this.title + " Category: " + this.category + " Cost: " + this.cost + "$";
+    }
 }
