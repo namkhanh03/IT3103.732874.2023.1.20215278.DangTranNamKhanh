@@ -1,7 +1,6 @@
 package AimsProject;
 
 import AimsProject.Media.*;
-import AimsProject.Cart;
 
 import java.util.Scanner;
 
