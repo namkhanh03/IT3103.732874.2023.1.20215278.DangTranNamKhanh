@@ -310,6 +310,7 @@ public class Aims {
                 "Science Fiction", "Christopher Nolan", 169, 21.99f);
         store.addMedia(dvd3);
 
+        //
         // Adding CDs
         Media cd1 = new CompactDisc(3, "Random Access Memories",
                 "Electronic", 15.99f, "Daft Punk", 13, "Daft Punk");
